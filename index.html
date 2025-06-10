@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资料分享吧 - cookxx@sohu.com</title>
+<style>
+#result{float:left; width:40%;}
+#sm{float:left; width:60%}
+span{ color:#FF0000}
+ol{ padding-left:15px;}
+@media screen and ( max-device-width: 520px) 
+{
+        #result{width:45%;}
+		#sm{width:55%;}		
+}
+</style>
+</head>
+
+<body>
+<script>
+document.writeln("<script src='jc.js?"+new Date().getFullYear()+'-'+new Date().getMonth()+'-'+new Date().getDate()+"'><\/script>");
+function recordKey()
+{
+	document.getElementById("factKey").value=document.getElementById("key").value.trim().toLowerCase();
+}
+function searchp(p,a,b)
+{
+	let k=document.getElementById("factKey").value.trim(); 
+	document.getElementById("key").value=k;
+	
+		let r="",cursor=-1,size=50, pl=(p-1)*size,ph=p*size-1;
+		for(let i=0;i<a.length;i++)
+		{
+			if(a[i][1].includes(k))
+			{
+				cursor++;
+				if(cursor>=pl && cursor<=ph)
+				{
+					r+="<tr onclick=\"document.getElementById('"+i+"').select();document.execCommand('copy');\">";
+					r+="<td>"+a[i][0]+"</td>";
+					r+="<td><input size='50' readonly='true' id='"+i+"' value=\"" +a[i][1]+"\" /></td>";
+					r+="</tr>";
+				}
+			}
+		}		
+		let plist="";
+		let ptotal=Math.ceil((cursor+1)/size);
+		for(let j=1;j<=ptotal;j++)
+		{
+			if(j==p)
+			{
+				//plist+='<a onclick="searchp('+j+','+b+",'"+b+"'"+')" href="#"><b>'+j+'</b></a> ';
+				plist+='<b>'+j+'</b> ';
+			}
+			else
+			{
+				plist+='<a onclick="searchp('+j+','+b+",'"+b+"'"+')" href="#">'+j+'</a> ';
+			}
+		}
+		plist="<div>"+plist+"</div>";		
+		
+		let pUpDown="";
+		if(ptotal>1)
+		{ 
+			if(p==ptotal)
+			{ 
+				pUpDown+='<a onclick="searchp('+(p-1)+','+b+",'"+b+"'"+')" href="#">上页</a>';
+			}
+			else if(p==1)
+			{
+				pUpDown+='<a onclick="searchp(2,'+b+",'"+b+"'"+')" href="#">下页</a>';
+			}
+			else
+			{
+				pUpDown+='<a onclick="searchp('+(p-1)+','+b+",'"+b+"'"+')" href="#">上页</a> ';
+				pUpDown+='<a onclick="searchp('+(p+1)+','+b+",'"+b+"'"+')" href="#">下页</a>';
+			}
+		}		
+		
+		if(r=="")r="<div><b>没有查询记录！</b></div>";
+		else r="<table cellspacing='0' border='1'><tr><th width='40'>价格</th><th>标题：点击即可复制标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+pUpDown+"</th></tr>"+r+"</table>";		
+		
+		document.getElementById("result").innerHTML = r+plist;
+}
+</script>
+<div>
+<input type="text" id="key" size="25" maxlength="25" placeholder="空白：表示搜索全部" style="margin-bottom:5px; font-size:xx-large" /><input type="hidden" id="factKey" />
+
+<input type="button" style=" font-size:xx-large"  value="教程"   onclick="recordKey(); searchp(1,jc,'jc');"  />
+</div>
+
+<div id="result"></div>
+<div id="sm">
+  <p>全是各大平台几十上千元真正的商业付费课，绝不是市面上几十块钱给你一整个网盘的那种资料（那是给主播吸粉引流用的，并无商用价值）。</p>
+    
+  <p>如何订购资料：用户发送指定主题的邮件到<span>cookxx@sohu.com</span>   约10分钟，邮箱机器人便会自动充值、发送资料等操作。有任何疑问，联系<span>QQ:3182656315</span>  <br />邮件主题示例如下：  </p>
+  <ol>    
+   <li>充值：自己决定转账金额(最少5元)，转账后，将转账订单号发送到邮箱，10分钟内入账。<span>交易只认下面的收款码！不要转账给其他账号或微信，后果自负！</span><br />
+    <img src="zfb.jpg" /><img src="image004.png" /><img src="image005.png" />
+    <li>购买电子资料：从 目录 找到要购买的资料，点击即可复制标题。标题（包括符号）要一模一样。把标题作为 主题发送到邮箱，10分钟内收到资料。<br />
+    <img src="image006.png" /><img src="image007.png" />
+    <li>查看个人资料、暗号、余额、VIP、佣金、明细等所有信息。邮件主题写：资料<br />
+    <img src="image008.png" />
+    
+  </ol> 
+   <p>以下说明可以解决你大部分的问题</p>
+    <ol>
+    
+    <li>调价属正常市场行为，不会退价或补价。购买了资料，后期获取同名资料 不会重复扣费。
+    <li>收款码、目录、资料、价格 是经常更新的，以最新网页为准。
+    <li>一般手机都自带电子邮件APP，建议绑定下邮箱(如果是QQ邮箱，可以直接绑定微信)，更便利。
+    <li>客户的账户余额等信息绑定在邮箱账户里，只要记得我们的收件箱，永不失联。
+    <li>我们收件邮箱只有cookxx@sohu.com  但发件邮箱有多个(名称都是“资料分享吧"）。你若发邮，别弄错了收件箱。
+    <li>教程包含中西餐、烘焙、营销、知识教育等，都是各大平台几十上千元真正的商业付费课。我们通过众筹购买录播获取，所以和正课是一样的，只是少了原作的售后。现仅几元钱就能学到。有的视频原作者留有联系方式或水印，就别蠢到去加他们咨询。咱就几元钱买的录播课，就别妄想人家正课的课后服务，不如踏实地多看几个教程，多试验多总结，小钱办大事。
+    <li>教程有长有短，有文本文档、语音、视频、电子书、图片等，不管哪种形式都确保教程完整可操作性。若链接失效、教程不完整、缺失、模糊不清、网上有免费的等等，只要是合理理由，都可联系我补发或退款。
+    <li>发出的邮件没收到回复可能原因：
+    1)	我们仅一个收件邮箱cookxx@sohu.com检查下你是否正确发邮到我们的收件邮箱。
+    2)	邮件主题不规范，不合规定的邮件会被自动过滤。
+    3)	检查下邮箱的垃圾箱，有时邮件被误判成垃圾广告。可以把我们的邮箱加入白名单
+    4)	机器人每隔10分钟批量处理邮件，可能还没到10分钟，未进行处理。
+    5)	不要直接回复以前的旧邮件，因为收件邮箱或主题都是错误。需创建个新邮件。 
+    6)	系统刚好在维护，维护好后会继续回复邮件，不会漏掉邮件。24小时内是肯定会回复的。
+    7)	仍有疑问，就直接联系QQ:3182656315
+    <li>每封邮件都是单独的一次请求。机器人每隔10分钟按时间顺序批量处理邮件，不用特意等待邮件回复。例如账户只要余额够，可以连续发邮件，每个邮件主题写一个 资料名称，10分钟内会批量给你发商品。
+    <li>邮箱主题写错了资料名称，有什么影响？如果此主题 不存在对应的资料，就没影响。如果此主题 存在对应资料，余额会立即扣掉并发送资料，不可撤销。实际上只要发生了扣费的操作都不可恢复,如购买会员。所以邮件不要随便乱发。
+    <li><span>开通会员300元</span>：期限一年，每周可免费获取7个不同教程。若账户有300元，发邮如下，即可开通。    <br />
+    <img src="image009.png" />后续像 购买电子资料 一样操作，获取教程不扣费。
+    <li><span>代理600元起</span>：<span>无限期</span>，每周可免费获取7个不同教程。<span>返佣4至8成</span>，易操作。买过资料的人可加入，详聊加Q: 3182656315 
+	</ol>
+</div>
+<script>
+window.onload= searchp(1,jc,'jc');
+</script>
+</body>
+</html>
