@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资料分享吧 - cookxx@sohu.com</title>
+
+</head>
+
+<body>
+<script>
+document.writeln("<script src='crmh.js?"+new Date().getFullYear()+'-'+new Date().getMonth()+'-'+new Date().getDate()+"'><\/script>");
+
+function recordKey()
+{
+	document.getElementById("factKey").value=document.getElementById("key").value.trim().toLowerCase();
+}
+function searchcr(p)
+{
+	let k=document.getElementById("factKey").value.trim(); 
+	document.getElementById("key").value=k;
+	/*if(k!="")*/
+	{
+		let r="",cursor=-1,size=50, pl=(p-1)*size,ph=p*size-1;
+		for(let i=0;i<crmh.length;i++)
+		{
+			if(crmh[i][0].includes(k))
+			{
+				cursor++;
+				if(cursor>=pl && cursor<=ph)
+				{
+					r+="<tr onclick=\"document.getElementById('"+i+"').select();document.execCommand('copy');\">";
+					r+="<td>"+crmh[i][2]+"</td>";
+					r+="<td><input size='50' readonly='true' id='"+i+"' value=\"" +crmh[i][0]+"\" /><div>"+crmh[i][4]+"</div></td>";/*实测标题都不含",但有时含',故用\"。网盘不用特地\"，因标题本身不支持' "*/
+					r+="<td>"+crmh[i][1]+"</td>";
+					r+="<td>"+crmh[i][3]+"</td>";
+					r+="</tr>";
+				}
+			}
+		}
+		if(r=="")r="<div><b>没有查询记录！</b></div>";
+		else r="<table cellspacing='0' border='1'><tr><th width='40'>价格</th><th width='20'>标题：点击即可复制标题</th><th width='40'>状态</th><th>每个渠道：最近更新的章节</th></tr>"+r+"</table>";
+		let plist="";
+		//ptotal=(cursor+1)/size;
+		//if((cursor+1)%size>0) ptotal++;
+		let ptotal=Math.ceil((cursor+1)/size);
+		
+		for(let j=1;j<=ptotal;j++)
+		{
+			if(j==p)
+			{
+				plist+='<b>'+j+'</b> ';
+			}
+			else
+			{
+				plist+='<a onclick="searchcr('+j+')" href="#">'+j+'</a> ';
+			}
+		}
+		plist="<div>"+plist+"</div>";
+		document.getElementById("result").innerHTML = r+plist;
+	}
+}
+
+</script>
+<div>
+<input type="text" id="key" size="25" maxlength="25" placeholder="空白：表示搜索全部" style="margin-bottom:5px; font-size:xx-large" /><input type="hidden" id="factKey" />
+
+<input type="button" style=" font-size:xx-large"  value="成人漫画"   onclick="recordKey(); searchcr(1);"  />
+</div>
+
+<div id="result"></div>
+
+<script>
+window.onload=searchcr(1);
+</script>
+</body>
+</html>
