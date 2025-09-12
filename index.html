@@ -7,6 +7,7 @@
 
 @media screen and ( max-device-width: 520px) 
 {
+	body{font-size:x-large;}
       input{font-size:xx-large;}
 }
 </style>
@@ -74,7 +75,7 @@ function searchp(p,a,b)
 		}		
 		
 		if(r=="")r="<div><b>没有查询记录！</b></div>";
-		else r="<table cellspacing='0' border='1'><tr><th width='40'>价格</th><th>标题：<i>点击即可复制标题</i><span style='float:right'>"+pUpDown+"</span></th></tr>"+r+"</table>";		
+		else r="<table cellspacing='0' border='1'><tr><th width='60'>价格</th><th>标题：<i>点击即可复制标题</i><span style='float:right'>"+pUpDown+"</span></th></tr>"+r+"</table>";		
 		
 		document.getElementById("result").innerHTML = r+plist;
 }
@@ -83,7 +84,7 @@ function searchp(p,a,b)
 <input type="text" id="key" size="25" maxlength="25" placeholder="空白：表示搜索全部" style="margin-bottom:5px; font-size:xx-large;" /><input type="hidden" id="factKey" />
 
 <input type="button" style=" font-size:xx-large"  value="商业教程"   onclick="recordKey(); searchp(1,jc,'jc');"  />
-<span style="color:#FF0000;font-size:xx-large;">客服QQ:3182656315</span> </div>
+<span style="color:#FF0000;">客服QQ:3182656315</span> </div>
 
 <div id="result"></div>
 <script>
