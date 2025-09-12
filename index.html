@@ -5,11 +5,9 @@
 <title>资料分享吧 - cookxx@sohu.com</title>
 <style>
 
-span{ color:#FF0000}
-
 @media screen and ( max-device-width: 520px) 
 {
-      
+      input{font-size:xx-large;}
 }
 </style>
 </head>
@@ -26,7 +24,7 @@ function searchp(p,a,b)
 	let k=document.getElementById("factKey").value.trim(); 
 	document.getElementById("key").value=k;
 	
-		let r="",cursor=-1,size=50, pl=(p-1)*size,ph=p*size-1;
+		let r="",cursor=-1,size=30, pl=(p-1)*size,ph=p*size-1;
 		for(let i=0;i<a.length;i++)
 		{
 			if(a[i][1].includes(k))
@@ -76,16 +74,16 @@ function searchp(p,a,b)
 		}		
 		
 		if(r=="")r="<div><b>没有查询记录！</b></div>";
-		else r="<table cellspacing='0' border='1'><tr><th width='40'>价格</th><th>标题：点击即可复制标题&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+pUpDown+"</th></tr>"+r+"</table>";		
+		else r="<table cellspacing='0' border='1'><tr><th width='40'>价格</th><th>标题：<i>点击即可复制标题</i><span style='float:right'>"+pUpDown+"</span></th></tr>"+r+"</table>";		
 		
 		document.getElementById("result").innerHTML = r+plist;
 }
 </script>
 <div>
-<input type="text" id="key" size="25" maxlength="25" placeholder="空白：表示搜索全部" style="margin-bottom:5px; font-size:xx-large" /><input type="hidden" id="factKey" />
+<input type="text" id="key" size="25" maxlength="25" placeholder="空白：表示搜索全部" style="margin-bottom:5px; font-size:xx-large;" /><input type="hidden" id="factKey" />
 
-<input type="button" style=" font-size:xx-large"  value="教程"   onclick="recordKey(); searchp(1,jc,'jc');"  />
-订购联系<span>QQ:3182656315</span> </div>
+<input type="button" style=" font-size:xx-large"  value="商业教程"   onclick="recordKey(); searchp(1,jc,'jc');"  />
+<span style="color:#FF0000;font-size:xx-large;">客服QQ:3182656315</span> </div>
 
 <div id="result"></div>
 <script>
