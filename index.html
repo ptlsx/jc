@@ -5,6 +5,7 @@
 <title>万款千元商业配方加盟商培训课程-爆款小吃烘焙厨师中餐西餐快餐蛋糕私房创业教程-资料分享吧</title>
 <style>
 th{text-align:left;}
+td input{width:98.5%;}td{padding:0}
 @media screen and ( max-device-width: 520px) 
 {
 	body{font-size:x-large;}
@@ -25,7 +26,7 @@ function searchp(p,a,b)
 	let k=document.getElementById("factKey").value.trim(); 
 	document.getElementById("key").value=k;
 	
-		let r="",cursor=-1,size=30, pl=(p-1)*size,ph=p*size-1;
+		let r="",cursor=-1,size=32, pl=(p-1)*size,ph=p*size-1;
 		for(let i=0;i<a.length;i++)
 		{
 			if(a[i][1].includes(k))
@@ -34,8 +35,9 @@ function searchp(p,a,b)
 				if(cursor>=pl && cursor<=ph)
 				{
 					r+="<tr onclick=\"document.getElementById('"+i+"').select();document.execCommand('copy');\">";
-					r+="<td>"+a[i][0]+"</td>";
-					r+="<td><input size='50' readonly='true' id='"+i+"' value=\"" +a[i][1]+"\" /></td>";
+					//r+="<td>"+a[i][0]+"</td>";
+					r+="<td>"+a[i][0]+"</td>"+"<td>"+a[i][0]/2+"</td>";
+					r+="<td><input size=50 readonly='true' id='"+i+"' value=\"" +a[i][1]+"\" /></td>";
 					r+="</tr>";
 				}
 			}
@@ -75,7 +77,9 @@ function searchp(p,a,b)
 		}		
 		
 		if(r=="")r="<div><b>没有查询记录！</b></div>";
-		else r="<table cellspacing='0' border='1'><tr><th width='60'>价格</th><th>标题：<i>点击即可复制标题</i><span style='float:right'>"+pUpDown+"</span></th></tr>"+r+"</table>";		
+		//else r="<table cellspacing='0' border='1'><tr><th width='60'>价格</th><th><span style='color:#FF0000;'>自助获取半价</span>&nbsp;<span>点击下面标题即可复制</span><span style='color:#FF0000;'>&nbsp;课程兑换码失效前尽快告知客服&nbsp;&nbsp;</span><span style='float:right'>"+pUpDown+"</span></th></tr>"+r+"</table>";	
+		
+		else r="<table cellspacing='0' border='1'><tr><th width='50'>价格</th><th width='50'>自助</th><th><span style='color:#FF0000;'>vip免费学 </span><span>点击下面标题即可复制</span><span style='color:#FF0000;'>&nbsp;&nbsp;&nbsp;兑换码失效前尽快告知客服&nbsp;&nbsp;</span><span style='float:right'>"+pUpDown+"</span></th></tr>"+r+"</table>";		
 		
 		document.getElementById("result").innerHTML = r+plist;
 }
