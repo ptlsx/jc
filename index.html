@@ -76,8 +76,7 @@ function searchp(p,a,b)
 			}
 		}		
 		
-		if(r=="")r="<div><b>没有查询记录！</b></div>";
-		//else r="<table cellspacing='0' border='1'><tr><th width='60'>价格</th><th><span style='color:#FF0000;'>自助获取半价</span>&nbsp;<span>点击下面标题即可复制</span><span style='color:#FF0000;'>&nbsp;课程兑换码失效前尽快告知客服&nbsp;&nbsp;</span><span style='float:right'>"+pUpDown+"</span></th></tr>"+r+"</table>";	
+		if(r=="")r="<div><b>没有查询记录！</b></div>";	
 		
 		else r="<table cellspacing='0' border='1'><tr><th width='50'>价格</th><th width='50'>自助</th><th><span style='color:#FF0000;'>vip免费学 </span><span>点击下面标题即可复制</span><span style='color:#FF0000;'>&nbsp;&nbsp;&nbsp;兑换码失效前尽快告知客服&nbsp;&nbsp;</span><span style='float:right'>"+pUpDown+"</span></th></tr>"+r+"</table>";		
 		
@@ -92,7 +91,27 @@ function searchp(p,a,b)
 
 <div id="result"></div>
 <script>
-window.onload= searchp(1,jc,'jc');
+//window.onload= searchp(1,jc,'jc');
+</script>
+<script>
+         window.onload = function(){window.onload= searchp(1,jc,'jc');
+             //屏蔽键盘事件
+             document.onkeydown = function (){
+                 var e = window.event || arguments[0];
+                 //F12
+                 if(e.keyCode == 123){return false;
+                 //Ctrl+Shift+I
+                 }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){return false;
+                 //Shift+F10
+                 }else if((e.shiftKey) && (e.keyCode == 121)){return false;
+                 //Ctrl+U
+                 }else if((e.ctrlKey) && (e.keyCode == 85)){return false;
+                 //Ctrl+S
+                 }else if((e.ctrlKey) && (e.keyCode == 83)){return false;}
+             };
+             //屏蔽鼠标右键
+             document.oncontextmenu = function (){return false;}
+         }
 </script>
 </body>
 </html>
